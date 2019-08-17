@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
 import { Container, Header } from 'semantic-ui-react'
-import LocationCard from './LocationCard'
+import EpisodeCard from './EpisodeCard'
 
-export default function LocationsList() {
-    const [locationData, setLocationData] = useState([])
+export default function EpisodeList() {
+    const [episodeData, setEpisodeData] = useState([])
 
     useEffect(() => {
         const getData = async () => {
           return await Axios
-          .get(`https://rickandmortyapi.com/api/location/`)
+          .get(`https://rickandmortyapi.com/api/episode/`)
         }
         getData()
         .then(response => {
           console.log(response)
-          let locations = response.data.results
-          setLocationData(locations)
+          let episodes = response.data.results
+          setEpisodeData(episodes)
         })
         .catch(error => {
           console.log('ERROR: ', error)
@@ -23,17 +23,17 @@ export default function LocationsList() {
       }, [])
 
       return (
-        <Container className='location-list grid-view'
+        <Container className='episode-list grid-view'
         style = {{
             display: 'flex', 
             flexFlow: 'column wrap', 
             alignItems: 'space-between', 
             justifyContent: 'space-evenly'}}>
-          <Header>Locations</Header>
-          {locationData.map(location => {
-            return <LocationCard name = {location.name}
-            type = {location.type}
-            dimension = {location.dimension}
+          <Header>Episodes</Header>
+          {episodeData.map(episode => {
+            return <EpisodeCard name = {episode.name}
+            airDate = {episode.air_date}
+            episode = {episode.episode}
              />
           })}
         </Container>
