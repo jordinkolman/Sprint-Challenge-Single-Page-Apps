@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
 import { Container, Header } from 'semantic-ui-react'
 import EpisodeCard from './EpisodeCard'
+import SearchForm from './SearchForm'
 
 export default function EpisodeList() {
     const [episodeData, setEpisodeData] = useState([])
@@ -30,6 +31,7 @@ export default function EpisodeList() {
             alignItems: 'space-between', 
             justifyContent: 'space-evenly'}}>
           <Header>Episodes</Header>
+          <SearchForm />
           {episodeData.map(episode => {
             return <EpisodeCard name = {episode.name}
             airDate = {episode.air_date}

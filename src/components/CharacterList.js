@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Container, Header } from 'semantic-ui-react'
 import CharacterCard from './CharacterCard'
+import SearchForm from './SearchForm'
 
 export default function CharacterList() {
   const [characterData, setCharacterData] = useState([])
@@ -29,6 +30,7 @@ export default function CharacterList() {
       alignItems: 'space-between', 
       justifyContent: 'space-evenly'}}>
       <Header>Characters</Header>
+      <SearchForm/>
       {characterData.map(character => {
         return <CharacterCard charName = {character.name}
         charStatus = {character.status}

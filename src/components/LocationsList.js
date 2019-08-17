@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
 import { Container, Header } from 'semantic-ui-react'
 import LocationCard from './LocationCard'
+import SearchForm from './SearchForm'
 
 export default function LocationsList() {
     const [locationData, setLocationData] = useState([])
@@ -30,6 +31,7 @@ export default function LocationsList() {
             alignItems: 'space-between', 
             justifyContent: 'space-evenly'}}>
           <Header>Locations</Header>
+          <SearchForm />
           {locationData.map(location => {
             return <LocationCard name = {location.name}
             type = {location.type}
