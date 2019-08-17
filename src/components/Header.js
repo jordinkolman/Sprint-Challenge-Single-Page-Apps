@@ -1,9 +1,11 @@
 import React from "react";
+import { Header } from 'semantic-ui-react'
 
-export default function Header() {
+
+export default function PageHeader() {
   return (
     <header className="ui centered">
-      <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
+      <Header className="ui center">Rick &amp; Morty Fan Page</Header>
     </header>
   );
 }
